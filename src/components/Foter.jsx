@@ -1,114 +1,59 @@
 import React from 'react';
-import { FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
+import { FaEnvelope, FaPhone, FaGithub, FaLinkedin } from 'react-icons/fa';
 
 const Footer = () => {
   return (
-    <div style={{
-      backgroundColor: '#073e82',
-      color: '#FFDD00',
-      fontFamily: 'Arial, sans-serif',
-      padding: '20px',
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'center',
-      alignItems: 'center',
-      textAlign: 'center',
-      marginTop: '50px',
-    }}>
+    <div className="bg-hero-gradient-dark text-white flex flex-col justify-center items-center font-montserrat px-6 relative">
       {/* Titre */}
-      <h1 style={{
-        fontSize: '2rem',  // Taille du titre réduite
-        marginBottom: '30px'
-      }}>
-        Aboukhlil Mohmmed Ali • Développeur Full-Stack
-      </h1>
+      <h1 className="text-3xl font-bold text-primary mb-6 mt-16">ABOUKHALIL MOHAMMED ALI</h1>
+      <p className="text-lg text-gray-400 text-center mb-8">
+        Développeur Full Stack • Passionné par le backend <br />
+        Création de solutions numériques innovantes et participation à des projets variés.
+      </p>
 
-      {/* Contenu de contact sur une seule ligne */}
-      <div style={{
-        display: 'flex',
-        justifyContent: 'center',  // Centrer horizontalement
-        gap: '30px',  // Espacement entre chaque élément
-        alignItems: 'center'
-      }}>
+      {/* Coordonnées */}
+      <div className="flex flex-col md:flex-row items-center justify-center gap-6">
         {/* Email */}
-        <div style={{ display: 'flex', alignItems: 'center' }}>
-          <a href="mailto:medaliaboukhalil@gmail.com" 
-             style={{
-               color: 'white', 
-               textDecoration: 'none', 
-               transition: 'color 0.3s ease', 
-               display: 'flex',
-               alignItems: 'center',
-             }}
-             onMouseOver={(e) => {
-               e.target.style.color = '#FFDD00';  // Changer la couleur du texte
-               e.target.querySelector('svg').style.fill = '#FFDD00'; // Changer la couleur de l'icône
-             }}  
-             onMouseOut={(e) => {
-               e.target.style.color = 'white';  // Revenir à la couleur du texte
-               e.target.querySelector('svg').style.fill = 'white'; // Revenir à la couleur de l'icône
-             }}
-          >
-            <FaEnvelope style={{ color: 'white', marginRight: '10px', transition: 'fill 0.3s ease' }} />
-            medaliaboukhalil@gmail.com
-          </a>
-        </div>
-
+        <a
+          href="mailto:medaliaboukhalil@gmail.com"
+          className="flex items-center gap-3 text-primary-light hover:text-primary transition-all duration-300"
+        >
+          <FaEnvelope className="text-2xl" />
+          medaliaboukhalil@gmail.com
+        </a>
         {/* Téléphone */}
-        <div style={{ display: 'flex', alignItems: 'center' }}>
-          <a href="tel:+2120710290759" 
-             style={{
-               color: 'white', 
-               textDecoration: 'none', 
-               transition: 'color 0.3s ease',
-               display: 'flex',
-               alignItems: 'center',
-             }}
-             onMouseOver={(e) => {
-               e.target.style.color = '#FFDD00';
-               e.target.querySelector('svg').style.fill = '#FFDD00';
-             }} 
-             onMouseOut={(e) => {
-               e.target.style.color = 'white';
-               e.target.querySelector('svg').style.fill = 'white';
-             }}
-          >
-            <FaPhone style={{ color: 'white', marginRight: '10px', transition: 'fill 0.3s ease' }} />
-            +2120710290759
-          </a>
-        </div>
-
-        {/* Localisation */}
-        <div style={{ display: 'flex', alignItems: 'center' }}>
-          <span 
-            style={{
-              color: 'white', 
-              transition: 'color 0.3s ease',
-              display: 'flex',
-              alignItems: 'center',
-            }}
-            onMouseOver={(e) => {
-              e.target.style.color = '#FFDD00';
-              e.target.querySelector('svg').style.fill = '#FFDD00';
-            }} 
-            onMouseOut={(e) => {
-              e.target.style.color = 'white';
-              e.target.querySelector('svg').style.fill = 'white';
-            }}
-          >
-            <FaMapMarkerAlt style={{ color: 'white', marginRight: '10px', transition: 'fill 0.3s ease' }} />
-            Hay Mohmmadi, Casablanca
-          </span>
-        </div>
+        <a
+          href="tel:+2120710290759"
+          className="flex items-center gap-3 text-primary-light hover:text-primary transition-all duration-300"
+        >
+          <FaPhone className="text-2xl" />
+          +212 07 10 29 07 59
+        </a>
+        {/* GitHub */}
+        <a
+          href="https://github.com/aboukhalil05"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-3 text-primary-light hover:text-primary transition-all duration-300"
+        >
+          <FaGithub className="text-2xl" />
+          GitHub
+        </a>
+        {/* LinkedIn */}
+        <a
+          href="https://www.linkedin.com/in/mohammed-ali-aboukhalil-a56019329"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-3 text-primary-light hover:text-primary transition-all duration-300"
+        >
+          <FaLinkedin className="text-2xl" />
+          LinkedIn
+        </a>
       </div>
 
-      {/* Footer */}
-      <footer style={{
-        marginTop: '10px',
-        fontSize: '15px',
-        color: 'white'
-      }}>
-        © 2024 ABOUKHALIL MOHAMMED ALI
+      {/* Copyright */}
+      <footer className="mt-12 text-gray-500 text-sm">
+        © 2024 ABOUKHALIL MOHAMMED ALI. Tous droits réservés.
       </footer>
     </div>
   );

@@ -1,115 +1,90 @@
-import React from "react";
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { FaHome, FaUser, FaTools, FaEnvelope } from "react-icons/fa";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { AiOutlineClose } from "react-icons/ai";
 
 function App() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
-    <div className="App">
-      <nav className="navbar">
-        <div className="navdiv">
+    <div className="App font-montserrat">
+      <nav className="fixed top-0 left-0 w-full bg-transparent bg-opacity-50 backdrop-blur-lg shadow-sm z-50">
+        <div className="container mx-auto flex items-center justify-between px-6 py-4">
           {/* Logo */}
-          <div className="logo">
-            <span className="lightblue">&lt;</span>
-            <span className="darkblue">M</span>
-            <span className="lightblue">ed</span>
-            <span className="darkblue">A</span>
-            <span className="lightblue">li</span>
-            <span className="lightblue">/&gt;</span>
-          </div>
+          <motion.div
+            className="text-3xl font-bold flex items-center text-primary"
+            initial={{ x: -100, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.5 }}
+          >
+            <span>&lt;</span>
+            <span className="text-primary-light">M</span>
+            <span>ed</span>
+            <span className="text-primary-light">A</span>
+            <span>li</span>
+            <span>&gt;</span>
+          </motion.div>
 
-          {/* Liens */}
-          <ul className="nav-links">
-            <li>
-              <a href="Hero.jsx">Accueil</a>
-            </li>
-            <li>
-              <a href="Parcours.jsx">Parcours</a>
-            </li>
-            <li>
-              <a href="skills.jsx">Compétences</a>
-            </li>
-            <li>
-              <a href="contact.jsx">Contact</a>
-            </li>
+          {/* Desktop Navigation */}
+          <ul className="hidden md:flex items-center gap-8 text-lg text-primary">
+            {[{ href: "#accueil", icon: <FaHome />, label: "Accueil" },
+              { href: "#parcours", icon: <FaUser />, label: "Parcours" },
+              { href: "#skills", icon: <FaTools />, label: "Compétences" },
+              { href: "#contact", icon: <FaEnvelope />, label: "Contact" },
+            ].map((link, index) => (
+              <li
+                key={index}
+                className="group relative transition-all duration-300"
+              >
+                <motion.a
+                  href={link.href}
+                  className="flex items-center gap-2 font-medium group-hover:text-primary-light transition-all duration-300"
+                >
+                  {link.icon}
+                  {link.label}
+                </motion.a>
+                {/* Trait animé */}
+                <span className="absolute bottom-[-2px] left-0 w-0 h-[2px] bg-primary-light transition-all duration-300 group-hover:w-full"></span>
+              </li>
+            ))}
           </ul>
-        </div>
-      </nav>
 
-      <style jsx>{`
-        * {
-          margin: 0;
-          padding: 0;
-          box-sizing: border-box;
-          text-decoration: none;
-        }
-        body {
-          margin: 0;
-          font-family: Arial, sans-serif;
-          background-color: #f7f9fc;
-          color: #073e82;
-          padding-top: 70px; /* Pour éviter que le contenu soit caché derrière la navbar */
-        }
-        .navbar {
-          background: #073e82;
-          font-family: Calibri, sans-serif;
-          padding: 15px;
-          width: 100%;
-          height: 70px;
-          position: fixed;
-          top: 0;
-          left: 0;
-          z-index: 1000;
-        }
-        .navdiv {
-          display: flex;
-          align-items: center;
-          justify-content: space-between; /* Les liens sont à droite */
-          width: 100%;
-        }
-        .logo {
-          margin-left: 20px; /* Espacement à gauche pour le logo */
-        }
-        .logo .lightblue {
-          color: white;
-          font-size: 30px;
-          font-weight: 600;
-        }
-        .logo .darkblue {
-          color: #ffd700;
-          font-size: 30px;
-          font-weight: 600;
-        }
-        .nav-links {
-          display: flex;
-          gap: 25px;
-          margin-right: 20px; /* Espacement à droite pour les liens */
-        }
-        .nav-links li {
-          list-style: none;
-          position: relative;
-        }
-        .nav-links li a {
-          color: #ffd700;
-          font-size: 20px;
-          font-weight: bold;
-          transition: color 0.3s ease;
-        }
-        .nav-links li a:hover {
-          color: white;
-        }
-        .nav-links li::before {
-          content: "";
-          position: absolute;
-          bottom: -5px;
-          left: 50%;
-          width: 0;
-          height: 2px;
-          background: white;
-          transition: all 0.3s ease;
-        }
-        .nav-links li:hover::before {
-          width: 100%;
-          left: 0;
-        }
-      `}</style>
+          {/* Burger Icon */}
+          <div
+            className="md:hidden cursor-pointer text-2xl text-primary"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            {menuOpen ? <AiOutlineClose /> : <GiHamburgerMenu />}
+          </div>
+        </div>
+
+        {/* Mobile Menu */}
+        {menuOpen && (
+          <motion.div
+            className="md:hidden bg-transparent bg-opacity-50 backdrop-blur-lg text-primary flex flex-col items-center gap-6 py-8"
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            {[{ href: "#accueil", icon: <FaHome />, label: "Accueil" },
+              { href: "#parcours", icon: <FaUser />, label: "Parcours" },
+              { href: "#skills", icon: <FaTools />, label: "Compétences" },
+              { href: "#contact", icon: <FaEnvelope />, label: "Contact" },
+            ].map((link, index) => (
+              <a
+                key={index}
+                href={link.href}
+                className="flex items-center gap-2 font-medium hover:text-primary-light transition-all duration-300"
+                onClick={() => setMenuOpen(false)}
+              >
+                {link.icon}
+                {link.label}
+              </a>
+            ))}
+          </motion.div>
+        )}
+      </nav>
     </div>
   );
 }

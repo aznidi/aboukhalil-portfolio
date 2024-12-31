@@ -4,6 +4,7 @@ import Hero from "./components/Hero";    // Importation du composant Hero
 import Parcours from "./components/Parcours"; // Importation du composant Parcours
 import Skills from "./components/Skills";  
 import Profile from "./components/Profile";
+import './index.css';
 
 
 import 'animate.css';
@@ -17,7 +18,6 @@ function App() {
     <div>
       <Navbar />
       <Hero />
-      <Profile />
       <Parcours />
       <Skills />
       <Contact />

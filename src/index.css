@@ -1,13 +1,41 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
+
+/* Style général */
+body {
+    scroll-behavior: smooth; /* Défilement fluide */
+  }
+  
+  /* Scrollbar personnalisé */
+  ::-webkit-scrollbar {
+    width: 12px; /* Largeur de la barre de défilement */
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: linear-gradient(to bottom, #0f172a, #1e293b); /* Fond de la piste */
+    border-radius: 6px; /* Coins arrondis */
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(to right, #4F46E5, #3B82F6); /* Couleurs principales de l'app */
+    border-radius: 6px; /* Coins arrondis */
+    border: 2px solid #1e293b; /* Espacement entre le pouce et la piste */
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to right, #3B82F6, #60A5FA); /* Couleur au survol */
+  }
+  
+  /* Firefox scrollbar */
+  * {
+    scrollbar-width: thin; /* Épaisseur fine */
+    scrollbar-color: #4F46E5 #0f172a; /* Pouce et piste */
+  }
+  
+  /* Effet de survol sur Firefox */
+  *:hover {
+    scrollbar-color: #3B82F6 #0f172a;
+  }
+  
