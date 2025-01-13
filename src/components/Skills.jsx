@@ -1,128 +1,117 @@
 import React from "react";
-import Slider from "react-slick"; // Slider élégant
-import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+import Slider from "react-slick";
+import {
+  FaHtml5,
+  FaCss3Alt,
+  FaJs,
+  FaPhp,
+  FaPython,
+  FaReact,
+  FaLaravel,
+  FaGitAlt,
+  FaGithub,
+  FaDocker,
+} from "react-icons/fa";
+import { SiMysql, SiMongodb, SiJira } from "react-icons/si";
+import { DiScrum } from "react-icons/di"; // Icône Scrum
+import { AiOutlineFileWord, AiOutlineFileExcel, AiOutlineFilePpt } from "react-icons/ai";
+
 const Skills = () => {
-  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.3 });
+  const technicalSkills = [
+    { name: "HTML", icon: <FaHtml5 className="text-orange-600 text-6xl" /> },
+    { name: "CSS", icon: <FaCss3Alt className="text-blue-500 text-6xl" /> },
+    { name: "JavaScript", icon: <FaJs className="text-yellow-500 text-6xl" /> },
+    { name: "PHP", icon: <FaPhp className="text-purple-500 text-6xl" /> },
+    { name: "Python", icon: <FaPython className="text-blue-400 text-6xl" /> },
+    { name: "React", icon: <FaReact className="text-cyan-500 text-6xl" /> },
+    { name: "Laravel", icon: <FaLaravel className="text-red-500 text-6xl" /> },
+    { name: "MySQL", icon: <SiMysql className="text-blue-600 text-6xl" /> },
+    { name: "MongoDB", icon: <SiMongodb className="text-green-500 text-6xl" /> },
+  ];
+
+  const officeSkills = [
+    { name: "Word", icon: <AiOutlineFileWord className="text-blue-600 text-6xl" /> },
+    { name: "Excel", icon: <AiOutlineFileExcel className="text-green-600 text-6xl" /> },
+    { name: "PowerPoint", icon: <AiOutlineFilePpt className="text-orange-600 text-6xl" /> },
+  ];
+
+  const collaborativeSkills = [
+    { name: "Scrum", icon: <DiScrum className="text-red-600 text-6xl" /> }, // Icône Scrum mise à jour
+    { name: "Jira", icon: <SiJira className="text-blue-500 text-6xl" /> },
+    { name: "Git", icon: <FaGitAlt className="text-orange-600 text-6xl" /> },
+    { name: "GitHub", icon: <FaGithub className="text-black text-6xl" /> },
+    { name: "Docker", icon: <FaDocker className="text-blue-400 text-6xl" /> },
+  ];
 
   const sliderSettings = {
     dots: true,
     infinite: true,
     speed: 1000,
-    slidesToShow: 4,
+    slidesToShow: 3,
     slidesToScroll: 1,
-    autoplay: true, // Défilement automatique
-    autoplaySpeed: 2500, // Vitesse du défilement
-    pauseOnHover: false, // Continue même au survol
+    autoplay: true,
+    autoplaySpeed: 2500,
+    pauseOnHover: true,
     responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-        },
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 2,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-        },
-      },
+      { breakpoint: 1024, settings: { slidesToShow: 3 } },
+      { breakpoint: 768, settings: { slidesToShow: 2 } },
+      { breakpoint: 480, settings: { slidesToShow: 1 } },
     ],
   };
 
-  const skills = [
-    { name: "HTML", image: "html.png" },
-    { name: "CSS", image: "css.png" },
-    { name: "JavaScript", image: "js.png" },
-    { name: "PHP", image: "php.png" },
-    { name: "Python", image: "python.png" },
-    { name: "React", image: "react.png" },
-    { name: "Laravel", image: "laravel.png" },
-    { name: "MySQL", image: "mysql.png" },
-  ];
+  const SkillBox = ({ skill }) => (
+    <div className="flex flex-col items-center justify-center bg-white border-4 border-yellow-500 rounded-lg shadow-lg p-4 mx-3 transform transition-all duration-500 hover:scale-105 hover:shadow-xl">
+      <div className="w-16 h-16 flex items-center justify-center mb-4">
+        {skill.icon}
+      </div>
+      <span className="text-black font-bold text-center">{skill.name}</span>
+    </div>
+  );
 
   return (
-    <div
-      id="skills"
-      ref={ref}
-      className="min-h-screen bg-hero-gradient-dark text-white flex flex-col justify-center items-center font-montserrat px-6 relative"
-    >
-      {/* Titre principal */}
-      <motion.h2
-        className="text-4xl md:text-5xl font-bold text-primary mb-12 text-center"
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={inView ? { opacity: 1, scale: 1 } : {}}
-        transition={{ duration: 1 }}
-      >
+    <div className="min-h-screen bg-white text-black flex flex-col justify-center items-center px-6 py-10">
+      <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-[#073e82]">
         Mes Compétences
-      </motion.h2>
+      </h2>
 
-      {/* Section Technique */}
-      <motion.div
-        className="w-full"
-        initial={{ opacity: 0, y: 50 }}
-        animate={inView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 1 }}
-      >
-        <h3 className="text-2xl font-semibold text-primary-light text-center mb-6">
+      {/* Compétences Techniques */}
+      <div className="w-full max-w-5xl mb-12">
+        <h3 className="text-2xl font-semibold text-center mb-6 text-[#073e82]">
           Compétences Techniques
         </h3>
-        <Slider {...sliderSettings} className="mb-12">
-          {skills.map((skill, index) => (
-            <div
-              key={index}
-              className="flex flex-col items-center justify-center bg-white bg-opacity-10 backdrop-blur-md border border-primary-light rounded-lg p-4 mx-3 shadow-lg transform transition-all duration-500 hover:scale-105"
-            >
-              <img
-                src={skill.image}
-                alt={skill.name}
-                className="w-16 h-16 object-cover rounded-full mb-4"
-              />
-              <span className="text-lg font-bold">{skill.name}</span>
-            </div>
+        <Slider {...sliderSettings}>
+          {technicalSkills.map((skill, index) => (
+            <SkillBox key={index} skill={skill} />
           ))}
         </Slider>
-      </motion.div>
+      </div>
 
-      {/* Section Bureautique */}
-      <motion.div
-        className="w-full"
-        initial={{ opacity: 0, y: 50 }}
-        animate={inView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 1, delay: 0.5 }}
-      >
-        <h3 className="text-2xl font-semibold text-primary-light text-center mb-6">
+      {/* Compétences Collaboratives */}
+      <div className="w-full max-w-5xl mb-12">
+        <h3 className="text-2xl font-semibold text-center mb-6 text-[#073e82]">
+          Compétences Collaboratives
+        </h3>
+        <Slider {...sliderSettings}>
+          {collaborativeSkills.map((skill, index) => (
+            <SkillBox key={index} skill={skill} />
+          ))}
+        </Slider>
+      </div>
+
+      {/* Compétences Bureautiques */}
+      <div className="w-full max-w-5xl">
+        <h3 className="text-2xl font-semibold text-center mb-6 text-[#073e82]">
           Compétences Bureautiques
         </h3>
         <Slider {...sliderSettings}>
-          {[
-            { name: "Word", image: "word.png" },
-            { name: "Excel", image: "excel.png" },
-            { name: "PowerPoint", image: "powerpoint.png" },
-          ].map((skill, index) => (
-            <div
-              key={index}
-              className="flex flex-col items-center justify-center bg-white bg-opacity-10 backdrop-blur-md border border-primary-light rounded-lg p-4 mx-3 shadow-lg transform transition-all duration-500 hover:scale-105"
-            >
-              <img
-                src={skill.image}
-                alt={skill.name}
-                className="w-16 h-16 object-cover rounded-full mb-4"
-              />
-              <span className="text-lg font-bold">{skill.name}</span>
-            </div>
+          {officeSkills.map((skill, index) => (
+            <SkillBox key={index} skill={skill} />
           ))}
         </Slider>
-      </motion.div>
+      </div>
     </div>
   );
 };

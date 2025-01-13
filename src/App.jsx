@@ -3,7 +3,7 @@ import Navbar from "./components/Navbar"; // Importation du Navbar
 import Hero from "./components/Hero";    // Importation du composant Hero
 import Parcours from "./components/Parcours"; // Importation du composant Parcours
 import Skills from "./components/Skills";  
-import Profile from "./components/Profile";
+
 import './index.css';
 
 
