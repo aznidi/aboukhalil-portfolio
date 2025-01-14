@@ -38,4 +38,15 @@ body {
   *:hover {
     scrollbar-color: #3B82F6 #0f172a;
   }
+
+
+  /* Loader Spinner */
+.border-primary {
+  border-color: #b5a004;
+}
+
+.bg-primary {
+  background-color: #b5a004;
+}
+
   

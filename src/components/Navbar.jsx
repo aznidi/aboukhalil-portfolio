@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { FaHome, FaUser, FaTools, FaEnvelope } from "react-icons/fa";
+import { FaHome, FaTools, FaEnvelope } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { AiOutlineClose } from "react-icons/ai";
+import { FaUserGraduate } from "react-icons/fa"; // Importation de l'icône Student
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -30,8 +31,8 @@ function App() {
           <ul className="hidden md:flex items-center gap-8 text-lg">
             {[
               { href: "#accueil", icon: <FaHome />, label: "Accueil" },
-              { href: "#parcours", icon: <FaUser />, label: "Education" },
               { href: "#skills", icon: <FaTools />, label: "Compétences" },
+              { href: "#parcours", icon: <FaUserGraduate />, label: "Education" }, // Nouvelle icône
               { href: "#contact", icon: <FaEnvelope />, label: "Contact" },
             ].map((link, index) => (
               <li
@@ -70,8 +71,8 @@ function App() {
           >
             {[
               { href: "#accueil", icon: <FaHome />, label: "Accueil" },
-              { href: "#parcours", icon: <FaUser />, label: "Education" },
               { href: "#skills", icon: <FaTools />, label: "Compétences" },
+              { href: "#parcours", icon: <FaUserGraduate />, label: "Education" }, // Nouvelle icône
               { href: "#contact", icon: <FaEnvelope />, label: "Contact" },
             ].map((link, index) => (
               <a
