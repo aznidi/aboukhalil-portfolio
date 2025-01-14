@@ -91,7 +91,7 @@ const Hero = () => {
               download
               className="px-6 py-3 bg-yellow-500 text-[#073e82] rounded-full shadow-lg hover:shadow-[0_0_10px_#073e82] transition-all duration-300 text-lg font-semibold"
             >
-              Télécharger mon CV
+              Explorez mon CV
             </a>
 
             {/* Icônes - Sous le bouton uniquement sur Mobile */}

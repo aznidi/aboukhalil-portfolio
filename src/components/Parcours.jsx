@@ -15,7 +15,7 @@ const Parcours = () => {
   return (
     <div
       id="parcours"
-      className="min-h-screen bg-white text-black flex flex-col justify-center items-center font-montserrat px-6"
+      className="min-h-screen bg-white text-black flex flex-col justify-center items-center font-montserrat px-6 mt-16 mb-16"
     >
       {/* Titre */}
       <motion.h2

@@ -30,7 +30,7 @@ function App() {
           <ul className="hidden md:flex items-center gap-8 text-lg">
             {[
               { href: "#accueil", icon: <FaHome />, label: "Accueil" },
-              { href: "#parcours", icon: <FaUser />, label: "Parcours" },
+              { href: "#parcours", icon: <FaUser />, label: "Education" },
               { href: "#skills", icon: <FaTools />, label: "Compétences" },
               { href: "#contact", icon: <FaEnvelope />, label: "Contact" },
             ].map((link, index) => (
@@ -70,7 +70,7 @@ function App() {
           >
             {[
               { href: "#accueil", icon: <FaHome />, label: "Accueil" },
-              { href: "#parcours", icon: <FaUser />, label: "Parcours" },
+              { href: "#parcours", icon: <FaUser />, label: "Education" },
               { href: "#skills", icon: <FaTools />, label: "Compétences" },
               { href: "#contact", icon: <FaEnvelope />, label: "Contact" },
             ].map((link, index) => (

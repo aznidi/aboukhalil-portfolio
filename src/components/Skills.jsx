@@ -2,6 +2,7 @@ import React from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+import { motion } from "framer-motion"; // Importation de motion
 import Slider from "react-slick";
 import {
   FaHtml5,
@@ -73,12 +74,19 @@ const Skills = () => {
 
   return (
     <div className="min-h-screen bg-white text-black flex flex-col justify-center items-center px-6 py-10">
-      <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-[#073e82]">
+      {/* Grand titre */}
+      <motion.h2
+        className="text-4xl md:text-5xl font-bold mb-12 text-center"
+        style={{ color: "#073e82" }}
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+      >
         Mes Compétences
-      </h2>
+      </motion.h2>
 
       {/* Compétences Techniques */}
-      <div className="w-full max-w-5xl mb-12">
+      <div className="w-full max-w-5xl mb-24">
         <h3 className="text-2xl font-semibold text-center mb-6 text-[#073e82]">
           Compétences Techniques
         </h3>
@@ -90,7 +98,7 @@ const Skills = () => {
       </div>
 
       {/* Compétences Collaboratives */}
-      <div className="w-full max-w-5xl mb-12">
+      <div className="w-full max-w-5xl mb-24">
         <h3 className="text-2xl font-semibold text-center mb-6 text-[#073e82]">
           Compétences Collaboratives
         </h3>

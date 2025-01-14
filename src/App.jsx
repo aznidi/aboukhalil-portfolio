@@ -18,8 +18,8 @@ function App() {
     <div>
       <Navbar />
       <Hero />
-      <Parcours />
       <Skills />
+      <Parcours />
       <Contact />
       <Foter />
     </div>
